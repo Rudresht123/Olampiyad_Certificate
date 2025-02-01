@@ -46,17 +46,24 @@
                     <thead class="bg-light fw-bold">
                         <tr class="py-3">
                             <th class="fw-bold">Sr. No.</th>
-                            <th class="fw-bold">School Name</th>
-                            <th class="fw-bold">Print Certificate</th>
-                            <th class="fw-bold">Phone</th>
-                            <th class="fw-bold">Email</th>
-                            <th class="fw-bold">No.Student</th>
-                            <th class="fw-bold">Principle Name</th>
+                            <th class="fw-bold">Category Name</th>
+                            <th class="fw-bold">Sequence</th>
+                            <th class="fw-bold">Description</th>
                             <th class="fw-bold">Is-Active</th>
                         </tr>
                     </thead>
                     <tbody>
-                   
+                   @foreach($categoriyes as $category)
+                   <tr editUrl="{{route('admin.global-setting.edit.corrective-advice.category',$category->id)}}" deleteurl="{{ route('RecordDelete', ['id' => $category->id, 'table_name' => 'corrective_advice_category']) }}">
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$category->category_name ?? ''}}</td>
+                    <td>{{$category->position ?? ''}}</td>
+                    <td>{{$category->description ?? ''}}</td>
+                    <td class="text-center">{!! $category->is_active == 'yes' ? '<span class="badge text-bg-success">Active</span>
+                                ' : '<span class="badge text-bg-danger">In-Active</span>'
+                                !!}</td>
+                   </tr>
+                   @endforeach
                     </tbody>
                       </table>
             </div>

@@ -41,4 +41,22 @@ class Record extends Model
         
         });
     }   
+
+    public function scopeRecord($query)
+    {
+        $table=$this->getTable();
+        /**
+         * table get school_id,branch_id,academic_id,finance_id
+         */
+
+        if (in_array('school_id', $this->fillable))
+            $query = $query->where($table.'.school_id', auth()->user()->school_id);
+
+        if (in_array('financial_id', $this->fillable))
+            $query = $query->where($table.'.financial_id', auth()->user()->financial_id);
+
+        return $query;
+    }
+
+
 }

@@ -11,16 +11,16 @@ use App\Http\Controllers\GlobalSetting\Certificate\CorrectiveAdviceCategory;
 Route::prefix('GlobalSetting/MasterAdmin/financial-year')->group(function() {
     Route::get('index', [FinancialController::class, 'index'])->name('admin.global-setting.financialYear');
     Route::post('create', [FinancialController::class, 'store'])->name('admin.global-setting.create-financialYear');
-    Route::get('admin/global-setting/edit/financialYear/{id}',[FinancialController::class,'edit'])->name('admin.global-setting.edit.financialYear')->middleware(['auth','verified']);
-    Route::put('admin/global-setting/edit/financialYear/{id}',[FinancialController::class,'update'])->name('admin.global-setting.edit.financialYear')->middleware(['auth','verified']);
+    Route::get('ednt/{id}',[FinancialController::class,'edit'])->name('admin.global-setting.edit.financialYear')->middleware(['auth','verified']);
+    Route::put('edit/{id}',[FinancialController::class,'update'])->name('admin.global-setting.edit.financialYear')->middleware(['auth','verified']);
 })->middleware(['auth', 'verified']);
 
 
 Route::prefix('GlobalSetting/MasterAdmin/school')->group(function() {
     Route::get('index', [SchoolController::class, 'index'])->name('admin.global-setting.school');
     Route::post('create', [SchoolController::class, 'store'])->name('admin.global-setting.create-school');
-    Route::get('admin/global-setting/edit/school/{id}',[SchoolController::class,'edit'])->name('admin.global-setting.edit.school')->middleware(['auth','verified']);
-    Route::put('admin/global-setting/edit/school/{id}',[SchoolController::class,'update'])->name('admin.global-setting.edit.school')->middleware(['auth','verified']);
+    Route::get('edit/{id}',[SchoolController::class,'edit'])->name('admin.global-setting.edit.school')->middleware(['auth','verified']);
+    Route::put('edit/{id}',[SchoolController::class,'update'])->name('admin.global-setting.edit.school')->middleware(['auth','verified']);
 })->middleware(['auth', 'verified']);
 
 
@@ -28,8 +28,8 @@ Route::prefix('GlobalSetting/MasterAdmin/school')->group(function() {
 Route::prefix('GlobalSetting/MasterAdmin/courses')->group(function() {
     Route::get('index', [CourseController::class, 'index'])->name('admin.global-setting.course');
     Route::post('create', [CourseController::class, 'store'])->name('admin.global-setting.create-course');
-    Route::get('admin/global-setting/edit/course/{id}',[CourseController::class,'edit'])->name('admin.global-setting.edit.course')->middleware(['auth','verified']);
-    Route::put('admin/global-setting/edit/course/{id}',[CourseController::class,'update'])->name('admin.global-setting.edit.course')->middleware(['auth','verified']);
+    Route::get('edit/{id}',[CourseController::class,'edit'])->name('admin.global-setting.edit.course')->middleware(['auth','verified']);
+    Route::put('edit/{id}',[CourseController::class,'update'])->name('admin.global-setting.edit.course')->middleware(['auth','verified']);
 })->middleware(['auth', 'verified']);
 
 
@@ -46,9 +46,9 @@ Route::get('RecordDelete/{id}/{table_name}/delete',[DeleteRecord::class,'DeleteR
 // Certificate Setting Start here
 
 // correctie advice categoryu
-Route::prefix('GlobalSetting/MasterAdmin/Cattective-advice/Category')->group(function() {
+Route::prefix('GlobalSetting/MasterAdmin/Carrective-advice/Category')->group(function() {
     Route::get('index', [CorrectiveAdviceCategory::class, 'index'])->name('admin.global-setting.corrective-advice.category');
     Route::post('create', [CorrectiveAdviceCategory::class, 'store'])->name('admin.global-setting.create.corrective-advice.category');
-    Route::get('admin/global-setting/edit/school/{id}',[SchoolController::class,'edit'])->name('admin.global-setting.edit.school')->middleware(['auth','verified']);
-    Route::put('admin/global-setting/edit/school/{id}',[SchoolController::class,'update'])->name('admin.global-setting.edit.school')->middleware(['auth','verified']);
+    Route::get('edit/{id}',[CorrectiveAdviceCategory::class,'edit'])->name('admin.global-setting.edit.corrective-advice.category')->middleware(['auth','verified']);
+    Route::put('edit/{id}',[CorrectiveAdviceCategory::class,'update'])->name('admin.global-setting.edit.corrective-advice.category')->middleware(['auth','verified']);
 })->middleware(['auth', 'verified']);

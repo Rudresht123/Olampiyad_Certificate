@@ -1,6 +1,7 @@
 <?php
 use App\Models\GlobalSetting\Financial\MsterSetting\FinancialYearModel;
 use Illuminate\Support\Facades\Session;
+use App\Models\GlobalSetting\SchoolInformation;
 
 
 if (!function_exists('setActiveAcademicSession')) {
@@ -18,5 +19,18 @@ if (!function_exists('setActiveAcademicSession')) {
         } else {
             Session::forget(['id', 'financial_session', 'start_date', 'end_date']);
         }
+    }
+}
+if (!function_exists('schoolCount')) {
+    function schoolCount()
+    {
+        $schools = SchoolInformation::get();
+        return count($schools);
+    }
+}
+if (!function_exists('studentCount')) {
+    function studentCount()
+    {
+        return 1011;
     }
 }

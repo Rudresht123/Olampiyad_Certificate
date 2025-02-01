@@ -24,7 +24,7 @@ class CorrectiveAdviceCategoryRequest extends FormRequest
         return [
             'position'=>'required',
             'category_name'=>'required',
-            'description'=>['sometimes'],
+            'description'=>'nullable',
             'is_active'=>'required'
         ];
     }

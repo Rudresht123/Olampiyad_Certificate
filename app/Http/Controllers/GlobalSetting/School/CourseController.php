@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\GlobalSetting\CourseModel;
 use Illuminate\Http\Request;
 use App\Http\Requests\GlobalSetting\MasterSetting\CourseRequest;
+use App\Repositories\MasterAdmin\CommanRepository;
 
 class CourseController extends Controller
 {
@@ -14,7 +15,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses=CourseModel::get();
+        $courses=(new CommanRepository())->getAllCourses();
         return view('admin_panel.module.globalsetting.MasterAdmin.courses',compact('courses'));
     }
 

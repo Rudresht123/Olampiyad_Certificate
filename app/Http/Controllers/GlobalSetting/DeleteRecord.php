@@ -11,6 +11,7 @@ use Exception;
 class DeleteRecord extends Controller
 {
     public function DeleteRecord($id,$table_name){
+     
         try{
             if (!Schema::hasTable($table_name)) {
                 return back()->with(['error' => 'Table not found']);

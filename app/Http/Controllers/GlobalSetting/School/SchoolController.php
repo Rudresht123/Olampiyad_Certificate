@@ -7,7 +7,7 @@ use App\Http\Requests\GlobalSetting\MasterSetting\CreateSchool;
 use App\Models\GlobalSetting\SchoolInformation;
 use Illuminate\Http\Request;
 use Session\Session;
-
+use App\Repositories\MasterAdmin\CommanRepository;
 class SchoolController extends Controller
 {
     /**
@@ -15,7 +15,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        $schoolinformation=SchoolInformation::get();
+        $schoolinformation=(new CommanRepository())->getAllSchools();
         return view('admin_panel.module.globalsetting.MasterAdmin.school',compact('schoolinformation'));
     }
 
