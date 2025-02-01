@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\GlobalSetting\Certificate;
+namespace App\Http\Controllers\SystemSetting;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\GlobalSetting\MasterSetting\CorrectiveAdviceCategoryRequest;
-
-class CorrectiveAdviceCategory extends Controller
+use App\Models\SystemSetting\EmailConfigurationModel;
+use App\Repositories\MasterAdmin\SystemSettingRepository;
+class EmailConfigurationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('admin_panel.module.globalsetting.MasterAdmin.corrective-advice-category');
+    public function index(){
+        $email=(new SystemSettingRepository())->getEmailsTemplate();
+       if($email){
+        return view('admin_panel.EmailTemplate.emailconfig',compact('email'));
+       }
     }
 
     /**
@@ -27,9 +29,9 @@ class CorrectiveAdviceCategory extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CorrectiveAdviceCategoryRequest $request)
+    public function store(Request $request)
     {
-        dd($request->all());
+        //
     }
 
     /**
