@@ -52,7 +52,7 @@
                   <li class="nav-label">Certificate Setting</li>
                   <li class="nav-sub-item">
                     <a href="{{route('admin.global-setting.corrective-advice.category')}}" class="nav-sub-link"><i data-feather="award"></i>Corrective Advice Category</a></li>
-                  <li class="nav-sub-item"><a href="template/classic/page-500.html" class="nav-sub-link"><i data-feather="file"></i> 500 Internal Server</a></li>
+                  <li class="nav-sub-item"><a href="{{route('admin.global-setting.corrective-advice')}}" class="nav-sub-link"><i data-feather="grid"></i> Add Corrective Advice</a></li>
                   <li class="nav-sub-item"><a href="template/classic/page-503.html" class="nav-sub-link"><i data-feather="file"></i> 503 Service Unavailable</a></li>
                   <li class="nav-sub-item"><a href="template/classic/page-505.html" class="nav-sub-link"><i data-feather="file"></i> 505 Forbidden</a></li>
             </ul>

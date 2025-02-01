@@ -55,7 +55,7 @@ class CorrectiveAdviceCategory extends Controller
     public function edit(string $id)
     {
         $correctiveadvice=CorrectiveAdviceCategoryModel::find($id);
-        return view('admin_panel.module.globalsetting.MasterAdmin.Edit.edit_corrective_advice',compact('correctiveadvice'));
+        return view('admin_panel.module.globalsetting.MasterAdmin.Edit.edit_corrective_advice_category',compact('correctiveadvice'));
     }
 
     /**

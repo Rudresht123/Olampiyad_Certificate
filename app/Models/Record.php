@@ -55,6 +55,11 @@ class Record extends Model
         if (in_array('financial_id', $this->fillable))
             $query = $query->where($table.'.financial_id', auth()->user()->financial_id);
 
+        if (in_array('position', $this->fillable))
+            $query = $query->orderBy('position');
+
+        if (in_array('sequence', $this->fillable))
+            $query = $query->orderBy('sequence');
         return $query;
     }
 

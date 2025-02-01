@@ -7,6 +7,7 @@ use App\Http\Controllers\GlobalSetting\School\CourseController;
 use App\Http\Controllers\GlobalSetting\School\MapSchoolWithCourse;
 use App\Http\Controllers\GlobalSetting\School\SchoolController;
 use App\Http\Controllers\GlobalSetting\Certificate\CorrectiveAdviceCategory;
+use App\Http\Controllers\GlobalSetting\Certificate\CorrectvieAdvice;
 
 Route::prefix('GlobalSetting/MasterAdmin/financial-year')->group(function() {
     Route::get('index', [FinancialController::class, 'index'])->name('admin.global-setting.financialYear');
@@ -51,4 +52,12 @@ Route::prefix('GlobalSetting/MasterAdmin/Carrective-advice/Category')->group(fun
     Route::post('create', [CorrectiveAdviceCategory::class, 'store'])->name('admin.global-setting.create.corrective-advice.category');
     Route::get('edit/{id}',[CorrectiveAdviceCategory::class,'edit'])->name('admin.global-setting.edit.corrective-advice.category')->middleware(['auth','verified']);
     Route::put('edit/{id}',[CorrectiveAdviceCategory::class,'update'])->name('admin.global-setting.edit.corrective-advice.category')->middleware(['auth','verified']);
+})->middleware(['auth', 'verified']);
+
+
+Route::prefix('GlobalSetting/MasterAdmin/Carrective-advice')->group(function() {
+    Route::get('index', [CorrectvieAdvice::class, 'index'])->name('admin.global-setting.corrective-advice');
+    Route::post('create', [CorrectvieAdvice::class, 'store'])->name('admin.global-setting.create.corrective-advice');
+    Route::get('edit/{id}',[CorrectvieAdvice::class,'edit'])->name('admin.global-setting.edit.corrective-advice')->middleware(['auth','verified']);
+    Route::put('edit/{id}',[CorrectvieAdvice::class,'update'])->name('admin.global-setting.edit.corrective-advice')->middleware(['auth','verified']);
 })->middleware(['auth', 'verified']);

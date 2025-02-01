@@ -9,7 +9,7 @@
 @section('EditModelTitleInfo','Manage Certificate Setting')
 @section('ModelSize', 'modal-lg')
 @section('AddModelPage')
-    @include('admin_panel.module.globalsetting.Masteradmin.Add.add-corrective-advice-category')
+    @include('admin_panel.module.globalsetting.Masteradmin.Add.add-corrective-advice',['correctivecategorys'=>$correctivecategorys])
 @endsection
 
 @section('main-content')
@@ -30,7 +30,7 @@
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
         <li class="breadcrumb-item" aria-current="page">Global Setting</li>
         <li class="breadcrumb-item" aria-current="page">Certificate Setting</li>
-        <li class="breadcrumb-item active" aria-current="page">Corrective-Advice-Category</li>
+        <li class="breadcrumb-item active" aria-current="page">Corrective-Advice</li>
     </ol>
 </nav>
 
@@ -46,24 +46,24 @@
                     <thead class="bg-light fw-bold">
                         <tr class="py-3">
                             <th class="fw-bold">Sr. No.</th>
+                            <th class="fw-bold">Position</th>
+                            <th class="fw-bold">Corrective Advice Category</th>
                             <th class="fw-bold">Category Name</th>
-                            <th class="fw-bold">Sequence</th>
-                            <th class="fw-bold">Description</th>
                             <th class="fw-bold">Is-Active</th>
                         </tr>
                     </thead>
                     <tbody>
-                   @foreach($categoriyes as $category)
-                   <tr editUrl="{{route('admin.global-setting.edit.corrective-advice.category',$category->id)}}" deleteurl="{{ route('RecordDelete', ['id' => $category->id, 'table_name' => 'corrective_advice_category']) }}">
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$category->category_name ?? ''}}</td>
-                    <td>{{$category->position ?? ''}}</td>
-                    <td>{{$category->description ?? ''}}</td>
-                    <td class="text-center">{!! $category->is_active == 'yes' ? '<span class="badge text-bg-success">Active</span>
+                 @foreach($correctiveadvices as $correctiveadvice)
+                 <tr editurl="{{route('admin.global-setting.edit.corrective-advice',$correctiveadvice->id)}}" deleteurl="{{ route('RecordDelete', ['id' => $correctiveadvice->id, 'table_name' => 'corrective_advice']) }}">
+                 <td>{{$loop->iteration ?? ''}}</td>
+                            <td>{{$correctiveadvice->position ?? ''}}</td>
+                            <td>{{$correctiveadvice->correctiveAdviceCategory->category_name ?? ''}}</td>
+                            <td>{{$correctiveadvice->corrective_advice ?? ''}}</td>
+                            <td class="text-center">{!! $correctiveadvice->is_active == 'yes' ? '<span class="badge text-bg-success">Active</span>
                                 ' : '<span class="badge text-bg-danger">In-Active</span>'
                                 !!}</td>
-                   </tr>
-                   @endforeach
+                        </tr>
+                 @endforeach
                     </tbody>
                       </table>
             </div>
