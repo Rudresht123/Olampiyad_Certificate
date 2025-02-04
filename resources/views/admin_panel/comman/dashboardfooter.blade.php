@@ -207,6 +207,17 @@
 
     });
 </script>
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#school_select').on('change',function(e){
+            e.preventDefault();
+            let school_id=$(this).val();
+            let route="{{route('dropdown.getCourse',':id')}}".replace(':id',school_id);
+            populateCourse(route);
+        });
+    });
+ </script>
+<!-- course select -->
 {!! autoAlert()!!}
 </body>
 

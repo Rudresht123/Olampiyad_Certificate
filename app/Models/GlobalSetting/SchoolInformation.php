@@ -2,6 +2,7 @@
 
 namespace App\Models\GlobalSetting;
 
+use App\Models\GlobalSetting\SchoolMapWithCourseModel;
 use App\Models\Record;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -28,4 +29,8 @@ class SchoolInformation extends Record
         'is_active',
         'user_id'
     ]; 
+
+    public function schoolCourse(){
+        return $this->hasMany(SchoolMapWithCourseModel::class, 'school_id', 'id');
+    }
 }

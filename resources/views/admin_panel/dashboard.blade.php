@@ -31,9 +31,9 @@
                 <img src="{{ asset('assets/img/icons/school_logo.png') }}"
                     class="border rounded-50 p-1 me-2" style="height:70px;width:70px;" alt="not found">
                 <h3
-                    class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold fs-6 text-dark">Total No. Of. School : </h3><br>
+                    class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold fs-6 text-dark">Total No. Of. School :
                 <span
-                    class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold fs-6 text-dark">{{schoolCount()}}</span>
+                    class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold mt-3 fs-6 text-dark">{{schoolCount()}}</span></h3>
             </div>
         </div>
     </div>
@@ -44,8 +44,8 @@
                 <img src="{{ asset('assets/img/icons/student.png') }}"
                     class="border rounded-50 p-1 me-2" style="height:70px;width:70px;" alt="not found">
                 <h3
-                    class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold fs-6 text-dark">Total No. Of. Student : <br><br><span
-                        class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold fs-6 mt-3 text-dark">{{studentCount()}}</span></h3>
+                    class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold fs-6 text-dark">Total No. Of. Student : <span
+                        class="tx-normal tx-rubik mg-b-0 mg-r-5 lh-1 fw-bold fs-6 mt-3 text-dark">{{schoolCount()}}</span></h3>
 
             </div>
         </div>

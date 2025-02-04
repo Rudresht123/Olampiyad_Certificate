@@ -8,6 +8,7 @@ use App\Http\Controllers\GlobalSetting\School\MapSchoolWithCourse;
 use App\Http\Controllers\GlobalSetting\School\SchoolController;
 use App\Http\Controllers\GlobalSetting\Certificate\CorrectiveAdviceCategory;
 use App\Http\Controllers\GlobalSetting\Certificate\CorrectvieAdvice;
+use App\Http\Controllers\GlobalSetting\CustomController;
 
 Route::prefix('GlobalSetting/MasterAdmin/financial-year')->group(function() {
     Route::get('index', [FinancialController::class, 'index'])->name('admin.global-setting.financialYear');
@@ -36,6 +37,7 @@ Route::prefix('GlobalSetting/MasterAdmin/courses')->group(function() {
 
 Route::prefix('GlobalSetting/MasterAdmin/map-school-with-courses')->group(function() {
     Route::get('index', [MapSchoolWithCourse::class, 'index'])->name('admin.global-setting.map-school-withcourse');
+    Route::get('get-school-class-data/{id}', [MapSchoolWithCourse::class, 'getClassData'])->name('admin.global-setting.map-school-withcourse-get-data');
     Route::post('create', [MapSchoolWithCourse::class, 'store'])->name('admin.global-setting.map-school-create-withcourse');
 })->middleware(['auth', 'verified']);
 
@@ -61,3 +63,10 @@ Route::prefix('GlobalSetting/MasterAdmin/Carrective-advice')->group(function() {
     Route::get('edit/{id}',[CorrectvieAdvice::class,'edit'])->name('admin.global-setting.edit.corrective-advice')->middleware(['auth','verified']);
     Route::put('edit/{id}',[CorrectvieAdvice::class,'update'])->name('admin.global-setting.edit.corrective-advice')->middleware(['auth','verified']);
 })->middleware(['auth', 'verified']);
+
+
+
+// Get Course For DropDown
+Route::prefix('GlobalSetting/Course')->group(function(){
+    Route::get('getCourse/{id}',[CustomController::class,'getCourse'])->name('dropdown.getCourse');
+})->middleware(['auth','verifyied']);

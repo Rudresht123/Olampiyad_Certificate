@@ -21,9 +21,27 @@
             <li class="nav-item active"><a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a></li>
             <li class="nav-item with-sub">
                 <a href="" class="nav-link"><i data-feather="package"></i> Module</a>
-
+             
                 <div class="navbar-menu-sub mx-wd-400">
-                  </div>
+                    <div class="row m-0 p-0">
+                        <a href="{{route('student.dashboard')}}" class="col-lg-12 m-0 p-0 bd-1">
+                            <ul>
+                                
+                                <li class="list-group-item d-flex align-items-center bd-0">
+                                    <div class="mg-r-15 p-2 rounded-10 bg-light">
+                                        <img src="{{ asset('assets/img/icons/student.png') }}" class="wd-30">
+                                    </div>
+                                    <div>
+                                        <h6 class="tx-14 tx-inverse font-weight-normal tx-semibold mg-b-0">Student Information</h6>
+                                        <span class="d-block tx-10 text-muted"
+                                            style="line-height:1.2; margin-top:3px;  ">Seamlessly handles admissions, documentation, and student grouping.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </a>
+                        
+                         </div>
+                </div>
             </li>
             <li class="nav-item with-sub">
                 <a href="" class="nav-link"><i data-feather="layers"></i> Global Settings</a>

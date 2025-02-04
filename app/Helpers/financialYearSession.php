@@ -28,9 +28,3 @@ if (!function_exists('schoolCount')) {
         return count($schools);
     }
 }
-if (!function_exists('studentCount')) {
-    function studentCount()
-    {
-        return 1011;
-    }
-}

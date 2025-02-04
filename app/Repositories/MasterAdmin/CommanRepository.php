@@ -6,6 +6,7 @@ use App\Models\GlobalSetting\CorrectiveAdviceCategoryModel;
 use App\Models\GlobalSetting\CorrectiveAdviceModel;
 use App\Models\GlobalSetting\CourseModel;
 use App\Models\GlobalSetting\SchoolInformation;
+use App\Models\GlobalSetting\SchoolMapWithCourseModel;
 use App\Repositories\RepositoryContract;
 
 class CommanRepository extends RepositoryContract
@@ -33,6 +34,13 @@ class CommanRepository extends RepositoryContract
     }
     public function getAllCorrectiveAdvice(){
         return CorrectiveAdviceModel::where('is_active','yes')->record()->get();
+    }
+    public function schoolWithCourse($search)
+    {
+        return SchoolInformation::with('schoolCourse')->where('id', $search)->record()->first();
+    }
+    public function getCourseDropDown($search=null){
+        return SchoolMapWithCourseModel::with('courses')->where('school_id',$search)->get();
     }
 }
 
